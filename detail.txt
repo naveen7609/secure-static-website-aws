@@ -1,0 +1,80 @@
+Got it 👍
+We’ll **rewrite your architecture section in text format**, make it **easy to understand**, and also explain each part so you can **turn it into a professional architecture diagram** later.
+
+---
+
+# 🏗️ Architecture (Text Format – Easy & Professional)
+
+### **Text Description of Architecture (Free-Tier Design)**
+
+```
+[User]
+   |
+   |  (HTTP request)
+   v
+[Amazon S3 Static Website Hosting]
+   |
+   |  (Public Read Access – controlled by bucket policy)
+   v
+[Website Files in S3 Bucket]
+   |-- index.html
+   |-- error.html
+   |-- robots.txt
+   |
+   |  (Encrypted at Rest with SSE-S3)
+   v
+[Versioning Enabled]
+```
+
+---
+
+### **Step-by-Step Explanation**
+
+1. **User**
+
+   * End-user or browser that wants to access your website.
+   * Makes a request via **HTTP** to the S3 website endpoint.
+
+2. **Amazon S3 Static Website Hosting**
+
+   * Hosts the website files.
+   * This is **the free-tier service** that serves your static content.
+   * Receives user requests and returns the website files.
+
+3. **Public Read Access (Bucket Policy)**
+
+   * Allows users to read files like `index.html` and `error.html`.
+   * Permissions are **controlled carefully** to prevent write or delete operations.
+   * This ensures the bucket is **secure, even though it’s publicly readable**.
+
+4. **Website Files in S3 Bucket**
+
+   * `index.html` → main page of your site
+   * `error.html` → error page when a URL is wrong
+   * `robots.txt` → blocks search engines (optional, for security)
+   * All files are stored **encrypted at rest (SSE-S3)** to protect data inside AWS.
+
+5. **Versioning Enabled**
+
+   * Protects against accidental file deletion or overwriting.
+   * Enables rolling back to a previous version if needed.
+
+---
+
+### **How to Turn This into a Diagram**
+
+* **Top Box:** User → Label as “HTTP Request”
+
+* **Middle Box:** S3 Static Website Hosting → Connect arrow from User
+
+* **Next Layer:** Bucket Files (index.html, error.html, robots.txt)
+
+* **Side Labels:**
+
+  * Encryption (SSE-S3)
+  * Bucket Policy (Public Read)
+  * Versioning Enabled
+
+* **Optional Note:** Add a side note:
+
+  > “HTTPS not available in free-tier. Production version would use CloudFront + WAF for secure access.”
