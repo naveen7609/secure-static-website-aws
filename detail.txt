@@ -1,5 +1,4 @@
-Got it 👍
-We’ll **rewrite your architecture section in text format**, make it **easy to understand**, and also explain each part so you can **turn it into a professional architecture diagram** later.
+
 
 ---
 
@@ -78,3 +77,4 @@ We’ll **rewrite your architecture section in text format**, make it **easy to 
 * **Optional Note:** Add a side note:
 
   > “HTTPS not available in free-tier. Production version would use CloudFront + WAF for secure access.”
+
